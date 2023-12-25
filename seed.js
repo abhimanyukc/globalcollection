@@ -12,9 +12,10 @@ const products = require('./products');
 //to setup stripe we call it like a function
 //we r not going to insert secret key using process.env.local since 
 //this is one operation we will insert product like this and deleting secret key after product added
-const stripe = Stripe(
-    "sk_test_51OQogSHwK2VRnWDKFqdCbyrozfi4sJRz1nnWGq4RpsAczfgglEIReUQ8zD040nxwdWhHqxUTMNvthsU4hxpE9GfH00bmwj09U3"
-);
+// const stripe = Stripe(
+//     "sk_test_51OQogSHwK2VRnWDKFqdCbyrozfi4sJRz1nnWGq4RpsAczfgglEIReUQ8zD040nxwdWhHqxUTMNvthsU4hxpE9GfH00bmwj09U3"
+// );
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 //this is what we can use to interact with stripe api
 
