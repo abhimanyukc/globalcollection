@@ -16,6 +16,9 @@ export default function ProductCard({ product ,index}) {
               alt={product.name}
               fill
               sizes="100%"
+              style={
+                {objectFit: 'contain'}
+              }
            />
            </div>
 
