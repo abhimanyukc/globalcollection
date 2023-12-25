@@ -15,6 +15,7 @@ const products = require('./products');
 // const stripe = Stripe(
 //     "sk_test_51OQogSHwK2VRnWDKFqdCbyrozfi4sJRz1nnWGq4RpsAczfgglEIReUQ8zD040nxwdWhHqxUTMNvthsU4hxpE9GfH00bmwj09U3"
 // );
+
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 //this is what we can use to interact with stripe api

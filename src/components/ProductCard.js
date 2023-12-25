@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
-
+import { formatCurrencyString } from "use-shopping-cart/core";
 //passing product data as a props 
 export default function ProductCard({ product ,index}) {
     return (
@@ -28,7 +28,10 @@ export default function ProductCard({ product ,index}) {
              <div className="mt-4 flex items-center  space-x-10">
                 <div>
                     <p className="text-gray-500">Price</p>
-                    <p className="text-md font-semibold">{product.price}</p>
+                    <p className="text-md font-semibold">{formatCurrencyString({
+                        currency: product.currency,
+                        value: product.price
+                    })}</p>
                 </div>
                 <button className="border rounded-lg py-1 px-4">
                 Add to Cart

@@ -1,57 +1,57 @@
 module.exports = [
   {
-    name: "Basic Tee (Sienna)",
+    name: "Basic Tee ",
     price: 3200,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/basic-tee-sienna.jpeg",
   },
   {
-    name: "Basic Tee (Black)",
+    name: "Basic Tee ",
     price: 3200,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/basic-tee-black.jpeg",
   },
   {
-    name: "Nomad Tumbler",
+    name: "Tumbler",
     price: 3500,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/nomad-tumbler.jpeg",
   },
   {
-    name: "Artwork Tee",
+    name: "Artwork ",
     price: 3200,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/artwork-tee.jpeg",
   },
   {
-    name: "Billfold Wallet",
+    name: "Billfold ",
     price: 11800,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/billfold-wallet.jpeg",
   },
   {
-    name: "Mini Sketchbook Set",
+    name: "Sketchbook Set",
     price: 2800,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/mini-sketchbook-set.jpeg",
   },
   {
-    name: "Organize Set",
+    name: "OrganizeSet",
     price: 14900,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/organize-set.jpeg",
   },
   {
-    name: "Machined Pen & Pencil",
+    name: "Machined Pen ",
     price: 7000,
-    currency: "USD",
+    currency: "NPR",
     image:
       "https://epic-projects.nyc3.digitaloceanspaces.com/react-ecommerce/machine-pen-pencil-set.jpeg",
   },
