@@ -1,11 +1,12 @@
 import { CheckIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { useState } from "react";
 import { stripe } from "src/utils/stripe";
 import { formatCurrencyString } from "use-shopping-cart";
 
 export default function ProductPage( {product}) {
-    
+       const [count, setCount] = useState(1)
     return (
     <div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
         <div className="flex flex-col md:flex-row justify-between
@@ -43,12 +44,12 @@ export default function ProductPage( {product}) {
                  <div className="mt-4 border-t pt-4">
                     <p className=" text-gray-500"> Quantity</p>
                     <div className="mt-1 flex items-center space-x-3">
-                        <button className="p-1 rounded-md hover:bg-rose-100
+                        <button disabled={count <= 1} onClick={() => setCount(count - 1)} className="p-1 rounded-md hover:bg-rose-100
                          hover:text-rose-500">
                             <MinusSmallIcon className="w-6 h-6 flex-shrink-0" />
                         </button>
-                        <p className="font-semibold text-xl">0</p>
-                        <button className="p-1 rounded-md hover:bg-rose-100
+                        <p className="font-semibold text-xl">{count}</p>
+                        <button  onClick={() => setCount(count + 1)} className="p-1 rounded-md hover:bg-rose-100
                          hover:text-green-500">
                             <PlusSmallIcon className="w-6 h-6 flex-shrink-0" />
                         </button>
