@@ -2,11 +2,21 @@ import { CheckIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { stripe } from "src/utils/stripe";
-import { formatCurrencyString } from "use-shopping-cart";
+import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
 
 export default function ProductPage( {product}) {
        const [count, setCount] = useState(1)
+    const { addItem } = useShoppingCart()
+
+       function onAddToCart(event) {
+        event.preventDefault();
+        const id = toast.loading(`adding ${count} item${count >1 ? "s" : ""}`);
+        addItem(product, { count });
+        toast.success(`${count} ${product.name} added`, { id });
+       }
+
     return (
     <div className="container lg:max-w-screen-lg mx-auto py-12 px-6">
         <div className="flex flex-col md:flex-row justify-between
@@ -56,7 +66,7 @@ export default function ProductPage( {product}) {
                     </div>
                  </div>
 
-                 <button className="w-full mt-4 border border-lime-500 py-2 px-6
+                 <button onClick={onAddToCart} className="w-full mt-4 border border-lime-500 py-2 px-6
                  bg-lime-500 hover:bg-lime-600 hover:border-lime-600 focus:ring-4 
                  focus:ring-opacity-50 focus:ring-lime-500 text-white
                  disabled:opacity-50 disabled:cursor-not-allowed rounded-md">
