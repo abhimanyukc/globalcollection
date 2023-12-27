@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }) {
   //App layout wraps all of our component
   return ( 
   <CartProvider stripe={stripeKey} 
-  cartMode='checkout-session' currency="NPR">
+  cartMode='checkout-session' currency="USD">
   <AppLayout>
     <Component {...pageProps} />
     <Toaster/>
