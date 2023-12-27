@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useShoppingCart } from "use-shopping-cart"
 
 export default function  CartPage()  {
-    const { cartCount } = useShoppingCart()
+    const { cartCount , clearCart} = useShoppingCart()
 
     return (
         <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
@@ -13,7 +13,8 @@ export default function  CartPage()  {
                </h2>
                <p className="mt-1 text-xl">
                 {cartCount} items{" "}
-                <button className="opacity-50 hover:opacity-100 text-base capitalize underline"> Clear all</button>
+                <button className="opacity-50 hover:opacity-100 text-base capitalize underline" 
+                onClick={() => clearCart()}> Clear all</button>
                 </p>
               
                   </>
