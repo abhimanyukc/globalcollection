@@ -1,9 +1,10 @@
 import Link from "next/link"
+import CartProduct from "src/components/CartProduct"
 import { useShoppingCart } from "use-shopping-cart"
 
 export default function  CartPage()  {
-    const { cartCount ,formattedTotalPrice, clearCart} = useShoppingCart()
-
+    const { cartCount ,cartDetails,formattedTotalPrice, clearCart} = useShoppingCart();
+     console.log(cartDetails)
     return (
         <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
            {cartCount > 0 ? (
@@ -31,9 +32,13 @@ export default function  CartPage()  {
                </p>
             </>
            )}
-          
+           
+           {/* code for having items */}
           {cartCount > 0  && (
             <div className="mt-12 space-y-4">
+                {Object.entries(cartDetails).map(([productId, product]) => (
+                    <CartProduct key={productId} product={product} />
+                ))}   
                 <div className="flex flex-col items-end border-t py-4 mt-8">
                     <p className="text-xl">
                         Total:{""}
