@@ -6,27 +6,28 @@ import { useShoppingCart } from "use-shopping-cart"
 
 export default function  CartPage()  {
     const { cartCount ,cartDetails,formattedTotalPrice, redirectToCheckout, clearCart} = useShoppingCart();
-     const [isRedirecting, setRedirecting] = useState(false)
+     const [isRedirecting, setRedirecting] = useState(false);
     async function onCheckout() {
         if (cartCount > 0) {
             try {
                setRedirecting(true)
-               const {id} = await axios
+               const { id } = await axios
                .post("/api/checkout-sessions", cartDetails)
                .then((res) => res.data);
-               const result = await redirectToCheckout(id)
+               const result = await redirectToCheckout(id);
                if (result?.error) {
-                console.log("Error in result: ",result)
+                console.log("Error in result: ",result);
                }
             }
             catch (error) {
-                console.log("Error:", error)
+                console.log("Error:", error);
             } finally {
-                setRedirecting(false)
+                setRedirecting(false);
             }
 
         }
     }
+
     return (
         <div className="container xl:max-w-screen-xl mx-auto py-12 px-6">
            {cartCount > 0 ? (
