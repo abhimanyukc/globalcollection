@@ -1,8 +1,27 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid"
+import axios from "axios";
+import { useRouter } from "next/router";
+import  useSWR  from "swr";
+import { useShoppingCart } from "use-shopping-cart";
 
 export default function SuccessPage() {
-    const data = true;
-    const error = false;
+    const router = useRouter();
+    const { clearCart } = useShoppingCart()
+    const sessionId = router.query.session_id;
+    // console.log(sessionId);
+    const { data, error } =  useSWR(
+        () => (sessionId ? `/api/checkout-sessions/${sessionId}` :
+    null), (url) => axios.get(url)
+    .then((res)=> res.data),
+    {
+        onSuccess() {
+             clearCart();
+        }
+    }
+    );
+  const email = data?.customer_details?.email;
+
+  
 
     return (
         <div className="container xl:max-w-screen-xl mx-auto py-12 px-6 text-center"> 
@@ -21,7 +40,7 @@ export default function SuccessPage() {
                   Thanks for ordering
                </h2>
                <p className="text-lg">
-                Check your email (email) for your invoice.
+                Check your email ({email}) for your invoice.
                </p>
                 </div>
           )}

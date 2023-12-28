@@ -1,3 +1,4 @@
+//creating dynamic route in client
 import { CheckIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { MinusSmallIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
