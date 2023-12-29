@@ -3,7 +3,7 @@ import { validateCartItems} from 'use-shopping-cart/utilities'
 export default async function handler(req,res) {
 if(req.method === "POST"){
     try {
-        const cartDetails = req.body
+        const cartDetails = req.body;
         const inventory = await stripe.products.list({
                expand: ['data.default_price'],
             });
@@ -23,17 +23,17 @@ if(req.method === "POST"){
             payment_method_types: ['card'],
             line_items: lineItems,
             success_url: `${req.headers.origin}/success?session_id= {CHECKOUT_SESSION_ID}`,
-            cancel_url: `${req.headers.origin}/cart`
+            cancel_url: `${req.headers.origin}/cart`,
         });
-        res.status(200).json(session)
+        res.status(200).json(session);
     } catch (error) {
         console.log(error)
-        res.status(500).json({ statusCode: 500, message: error.message})
+        res.status(500).json({ statusCode: 500, message: error.message});
 
     }
 
 }  else {
-    res.setHeader("Allow", "POST")
-    res.status(405).end("Method Not Allowed")
+    res.setHeader("Allow", "POST");
+    res.status(405).end("Method Not Allowed");
 }
 }
