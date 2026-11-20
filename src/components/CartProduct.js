@@ -25,7 +25,7 @@ export default function CartProduct({ product }) {
                {product.name}
             </p>
          </Link>
-
+ 
          <div className="flex items-center">
             <div className="flex items-center space-x-3">
 
